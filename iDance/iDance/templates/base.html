@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		{% load staticfiles %}
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	
+		<!-- JS -->
+		<script src="{% static 'js/libs/jquery.js' %}"></script>
+		<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/libs/jquery.formset.min.js' %}"></script>
+	</head>
+	<body>
+		{% block content %}{% endblock %}
+	</body>
+</html>

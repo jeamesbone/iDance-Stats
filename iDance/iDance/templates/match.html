@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load iDance_tags %}
+
+{% block content %}
+	<div class='container'>
+		<div class='row'>
+			<div class='col-md-8 col-md-offset-2'>
+			<h1 class='text-center'>Matches</h1>
+			<form method="get" action="" class="form text-center">
+				Player 1: <input type="text" name="p1" value="{{ request.GET.p1 }}"></input>
+				Player 2: <input type="text" name="p2" value="{{ request.GET.p2 }}"></input>
+				Spread: <input type="text" name="spread" value="{{ request.GET.spread }}"></input>
+				<button type="submit">Go</button>
+			</form>
+			<table class="table table-striped table-bordered">
+				<tr>
+					<th>Song</th>
+					<th>Player 1</th>
+					<th>Player 1 Diff</th>
+					<th>Player 1 Score</th>
+					<th>Player 2</th>
+					<th>Player 2 Diff</th>
+					<th>Player 2 Score</th>					
+				</tr>
+				{% for score in scores %}
+				<tr>
+					<td>{{ score.0.song.name }}</td>
+					<td class='success'>{{ score.0.player.name }}</td>
+					<td class='success'>{{ score.0.difficulty }}</td>
+					<td class='success'>{{ score.0.score | percent }}</td>
+					<td class='info'>{{ score.1.player.name }}</td>
+					<td class='info'>{{ score.1.difficulty }}</td>
+					<td class='info'>{{ score.1.score | percent }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+{% endblock %}
